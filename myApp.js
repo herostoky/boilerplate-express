@@ -58,7 +58,10 @@ app.route("/name").get(function(req, res) {
   res.json(data);
 })
 .post(function(req, res) {
-  res.json("POST");
+  let data = {
+    name: req.body.first + " " + req.body.last,
+  };
+  res.json(data);
 });
 
 
