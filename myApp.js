@@ -1,6 +1,6 @@
 let express = require('express');
 let path = require('path');
-console.log("Hello World");
+require('dotenv').config();
 let app = express();
 
 // Middleware
@@ -16,8 +16,12 @@ app.get("/", function(req, res) {
 });
 
 app.get("/json", function(req, res) {
-  data = {
-    message: "Hello json",
+  let message = "Hello json";
+  if(process.env.MESSAGE_STYLE == "uppercase") {
+    message = "HELLO JSON";
+  }
+  let data = {
+    message: message,
   };
   res.json(data);
 });
