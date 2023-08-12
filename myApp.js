@@ -49,7 +49,15 @@ app.get("/:word/echo", function(req, res) {
   res.json(data);
 });
 
-
+app.route("/name").get(function(req, res) {
+  let data = {
+    name: req.query.first + " " + req.query.last,
+  };
+  res.json(data);
+})
+.post(function(req, res) {
+  res.json("POST");
+});
 
 
 
