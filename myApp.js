@@ -6,6 +6,10 @@ let app = express();
 // Middleware
 app.use("/public", express.static(__dirname + "/public"));
 // app.use(express.static(path.join(__dirname, "public")));
+app.use(function(req, res, next) {
+  console.log(req.method + " " + req.path + " - " + req.ip);
+  next();
+});
 
 app.get("/hello", function(req, res) {
   res.send("Hello Express");
