@@ -4,7 +4,7 @@ console.log("Hello World");
 let app = express();
 
 // Middleware
-app.use(express.static(__dirname + "/public"));
+app.use("/public", express.static(__dirname + "/public"));
 // app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/hello", function(req, res) {
