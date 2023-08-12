@@ -42,7 +42,12 @@ function(req, res) {
   res.json(data);
 });
 
-
+app.get("/:word/echo", function(req, res) {
+  let data = {
+    echo: req.params.word,
+  };
+  res.json(data);
+});
 
 
 
